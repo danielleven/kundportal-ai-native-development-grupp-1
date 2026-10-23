@@ -26,14 +26,14 @@ Endast påhittade uppgifter används. Kundinloggning, produktionsdrift, externa 
 
 ### Team och teknik
 
-| Uppgift | Status |
-| --- | --- |
-| Teamnamn | Fylls i av gruppen. |
-| Medlemmar och GitHub-användarnamn | Fylls i av gruppen. |
-| Språk och ramverk | Inte valt. |
-| Klientplattform | Inte vald. |
-| Databas/beständig lagring | Inte vald. |
-| Testverktyg | Inte valt. |
+| Uppgift                           | Status                                                                                                                      |
+| --------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| Teamnamn                          | Jiriga                                                                                                                      |
+| Medlemmar och GitHub-användarnamn | `Daniel - /danielleven` `Danielle - /danielleroslund` `Lukas - /LurreT` `Alvar - /AlvarArias` `Nora - /NoraAljuburiMasamra` |
+| Språk och ramverk                 | Inte valt.                                                                                                                  |
+| Klientplattform                   | Inte vald.                                                                                                                  |
+| Databas/beständig lagring         | Inte vald.                                                                                                                  |
+| Testverktyg                       | Inte valt.                                                                                                                  |
 
 ### Installation och körning
 
@@ -93,12 +93,12 @@ Ni arbetar i **samma fork** under projektet. Det räcker att en person skapar de
 
 Teamets löpande PR går **från `main` i teamets fork till `main` i kursens repository**.
 
-| Val i GitHub | Ange |
-|---|---|
+| Val i GitHub    | Ange                                        |
+| --------------- | ------------------------------------------- |
 | Base repository | `Technigo/kundportal-ai-native-development` |
-| Base | `main` |
-| Head repository | Teamets fork |
-| Compare | `main` |
+| Base            | `main`                                      |
+| Head repository | Teamets fork                                |
+| Compare         | `main`                                      |
 
 Välj **compare across forks** om båda repositories inte visas. Använd teamets namn i PR-rubriken. Kopiera innehållet i [PR-mallen för teamets projekt](.github/PULL_REQUEST_TEMPLATE/teamets-projekt.md) till beskrivningen och fyll i det som finns vid starten. Resten växer fram under projektet.
 
