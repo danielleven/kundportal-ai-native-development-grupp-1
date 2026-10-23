@@ -1,5 +1,76 @@
 # Kundserviceportalen
 
+## Projektöversikt
+
+Kundserviceportalen är ett lokalt arbetsverktyg för handläggare som registrerar, läser och följer kundärenden. Lösningen planeras innehålla ett användargränssnitt, applikationslogik och beständig lagring.
+
+**Projektstatus 2026-10-23:** krav och verifiering är dokumenterade som ett första förslag. Applikationskod, automatiserade tester och val av teknik återstår. Inga produktkontroller är genomförda.
+
+### Gruppens underlag
+
+- [Kravspecifikation och acceptanskriterier](docs/kravspecifikation.md)
+- [Verifieringsplan, planerade tester och resultat](docs/verifieringsplan.md)
+
+Länka till dessa underlag från teamets löpande PR. Kursens ursprungliga instruktioner finns kvar längre ned i denna README.
+
+### Planerad funktionalitet
+
+- Registrera kundärenden med validerad rubrik, beskrivning, kategori och prioritet.
+- Visa ärendelista och ärendedetaljer.
+- Ändra status mellan Nytt, Pågående, Väntar på kund och Avslutat.
+- Bevara ärenden och statusändringar efter omstart.
+- Visa begripliga fel när inmatning är felaktig eller en operation misslyckas.
+- Filtrera ärendelistan på status, föreslagen kompletterande funktion.
+
+Endast påhittade uppgifter används. Kundinloggning, produktionsdrift, externa integrationer och en AI-funktion i produkten ingår inte. Exakta regler och avgränsningar finns i kravspecifikationen och ska fastställas av gruppen innan implementation.
+
+### Team och teknik
+
+| Uppgift | Status |
+| --- | --- |
+| Teamnamn | Fylls i av gruppen. |
+| Medlemmar och GitHub-användarnamn | Fylls i av gruppen. |
+| Språk och ramverk | Inte valt. |
+| Klientplattform | Inte vald. |
+| Databas/beständig lagring | Inte vald. |
+| Testverktyg | Inte valt. |
+
+### Installation och körning
+
+Applikationen är ännu inte implementerad. Det finns därför inga installations-, start- eller testkommandon att köra. Instruktionerna ska kompletteras med faktiska, verifierade kommandon när projektstrukturen finns.
+
+Före demonstration och inlämning ska detta avsnitt beskriva:
+
+1. Nödvändiga verktyg och versioner samt hur teamets repo klonas.
+2. Installation av beroenden från repots rot.
+3. Eventuell lokal konfiguration och initiering av lagring, utan riktiga kunduppgifter eller hemligheter.
+4. Start av lösningens samtliga delar och hur användargränssnittet öppnas.
+5. Exakt kommando för att köra alla automatiserade tester och hur separat testlagring används.
+6. Hur applikationen stoppas och startas igen samt var ärenden lagras beständigt.
+7. Hur påhittade demonstrationsdata skapas vid behov.
+
+En annan person ska kunna följa instruktionerna utan ett personligt betalkonto. Körinstruktionerna verifieras från en ren klon enligt M06 i verifieringsplanen.
+
+### Planerat demonstrationsflöde
+
+Detta flöde är en plan för den färdiga lösningen och har ännu inte genomförts.
+
+1. Starta applikationen enligt körinstruktionerna och öppna ärendelistan.
+2. Försök skapa ett ärende utan rubrik. Visa begripligt fel och att inget ärende sparas.
+3. Skapa två giltiga ärenden med påhittat innehåll och öppna detaljerna för ett av dem.
+4. Ändra dess status till Pågående och kontrollera att statusen visas i detaljvy och lista.
+5. Filtrera på Pågående. Visa att bara matchande ärenden syns och återställ med Alla.
+6. Stoppa hela applikationen och starta den igen med samma lagring. Visa att ärenden och statusändring finns kvar.
+7. Kör de automatiserade testerna och visa faktiska resultat samt kända begränsningar i verifieringsplanen.
+
+### Arbetsplan
+
+Fastställ först kravförslag, kompletterande funktion och teknikval. Dela sedan upp arbetet i uppgifter kopplade till krav-ID:n. Implementera registrering och lagring, därefter lista och detaljer, statusändring och felhantering samt statusfilter. Uppdatera tester och dokumentation tillsammans med respektive funktion.
+
+Körresultat redovisas i verifieringsplanen först efter faktisk körning. Kursens regler för gemensamma och individuella underlag gäller enligt instruktionerna nedan.
+
+---
+
 Här samlar ni teamets arbete med Kundserviceportalen i kursen AI Native Development. Ni väljer teknik och bygger en mindre fullstacklösning med AI-stöd. Använd bara påhittade kunduppgifter.
 
 **Uppgift, betygskriterier, veckoförväntningar och deadline finns under Kursexamination i Disco.** Börja där och återvänd dit under arbetet.
