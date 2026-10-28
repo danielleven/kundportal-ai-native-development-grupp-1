@@ -78,11 +78,15 @@ Motivering: ett enkelt flöde ger handläggaren flexibilitet och håller impleme
 
 ## 6. Funktionella krav och acceptanskriterier
 
+<a name="k1"></a>
+
 ### K1 – Registrera ärende
 
 - Med giltig rubrik, beskrivning, kategori och prioritet sparas exakt ett nytt ärende per lyckad registreringsoperation.
 - Sparade uppgifter följer fältreglerna. Ärendet får ett unikt ID, status Nytt och skapandetid.
 - Användaren får en bekräftelse efter lyckad lagring och kan hitta ärendet i listan och öppna dess detaljer.
+
+<a name="k2"></a>
 
 ### K2 – Validera inmatning
 
@@ -91,11 +95,15 @@ Motivering: ett enkelt flöde ger handläggaren flexibilitet och håller impleme
 - Gränssnittet visar ett begripligt fel som identifierar fältet och hur felet rättas. Redan ifyllda uppgifter finns kvar.
 - Exempel: ”Ange en rubrik” och ”Rubriken får innehålla högst 100 tecken”.
 
+<a name="k3"></a>
+
 ### K3 – Bevara ärenden
 
 - Ett sparat ärende finns kvar med samma ID och uppgifter när applikationen stoppas och startas igen med samma lagring.
 - En sparad statusändring finns också kvar efter omstart.
 - Minneslagring som töms vid omstart uppfyller inte kravet.
+
+<a name="k4"></a>
 
 ### K4 – Visa ärendelista
 
@@ -103,11 +111,15 @@ Motivering: ett enkelt flöde ger handläggaren flexibilitet och håller impleme
 - Senast skapade ärenden visas först. Ärenden med samma skapandetid får visas i valfri inbördes ordning.
 - Om inga ärenden finns visas ett tydligt tomläge, exempelvis ”Det finns inga ärenden ännu”.
 
+<a name="k5"></a>
+
 ### K5 – Visa ärendedetaljer
 
 - Ett ärende kan öppnas från listan. Alla fält i ärendemodellen visas och tillhör det valda ärendet.
 - Om ett efterfrågat ID inte finns visas ett begripligt besked, exempelvis ”Ärendet kunde inte hittas”.
 - Användaren kan återgå till ärendelistan.
+
+<a name="k6"></a>
 
 ### K6 – Ändra status
 
@@ -117,11 +129,15 @@ Motivering: ett enkelt flöde ger handläggaren flexibilitet och håller impleme
 - Ett okänt ärende-ID ger ett begripligt fel och skapar inte ett nytt ärende.
 - Statusändringen finns kvar efter omstart enligt K3.
 
+<a name="k7"></a>
+
 ### K7 – Hantera lagringsfel
 
 - Om lagring misslyckas vid registrering eller statusändring visas ett begripligt fel, exempelvis ”Ändringen kunde inte sparas. Försök igen”.
 - Ingen lyckad bekräftelse visas. Inmatade formulärvärden behålls vid misslyckad registrering.
 - En misslyckad skrivoperation lämnar den tidigare beständiga datan oförändrad. Gränssnittet får inte presentera ändringen som sparad.
+
+<a name="k8"></a>
 
 ### K8 – Filtrera på status, kompletterande funktion
 
@@ -137,10 +153,10 @@ Motivering: filtret hjälper handläggaren att hitta ärenden som behöver hante
 
 | ID | Krav | Acceptanskriterium |
 | --- | --- | --- |
-| Q1 | Lokal och reproducerbar körning | README beskriver faktiska förutsättningar, installation, lagringskonfiguration och startkommandon. En annan person kan följa instruktionerna och starta lösningen lokalt. |
-| Q2 | Automatiserad verifiering | Centrala beteenden verifieras mot acceptanskriterier med happy paths, relevanta error paths och gränsfall. Testkommandon och testlänkar dokumenteras. |
-| Q3 | Spårbar verifiering | Verifieringsplanen skiljer planerade tester från genomförda kontroller, automatiserat från manuellt och dokumenterar faktiska resultat samt begränsningar. |
-| Q4 | Demonstration och eget bidrag | README beskriver ett demonstrationsflöde. Varje medlem kan visa sitt bidrag och förklara dess verifiering genom länkade uppgifter, PR:er och tester. |
+| <a name="q1"></a>Q1 | Lokal och reproducerbar körning | README beskriver faktiska förutsättningar, installation, lagringskonfiguration och startkommandon. En annan person kan följa instruktionerna och starta lösningen lokalt. |
+| <a name="q2"></a>Q2 | Automatiserad verifiering | Centrala beteenden verifieras mot acceptanskriterier med happy paths, relevanta error paths och gränsfall. Testkommandon och testlänkar dokumenteras. |
+| <a name="q3"></a>Q3 | Spårbar verifiering | Verifieringsplanen skiljer planerade tester från genomförda kontroller, automatiserat från manuellt och dokumenterar faktiska resultat samt begränsningar. |
+| <a name="q4"></a>Q4 | Demonstration och eget bidrag | README beskriver ett demonstrationsflöde. Varje medlem kan visa sitt bidrag och förklara dess verifiering genom länkade uppgifter, PR:er och tester. |
 
 ## 8. Beslut att fastställa före implementation
 

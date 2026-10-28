@@ -29,22 +29,22 @@ Alla rader nedan har status **Planerat**. Test-ID:n är dokumentationsreferenser
 
 | ID | Typ | Krav | Beteende och förväntat resultat | Föreslagen nivå | Testlänk |
 | --- | --- | --- | --- | --- | --- |
-| T01 | Happy path | K1 | Giltig registrering sparar ett ärende med rätt trimmade fält, unikt ID, status Nytt och giltig skapandetid. Två registreringar får olika ID:n. | Integration | Saknas |
-| T02 | Error path | K2 | Saknad eller tom rubrik respektive beskrivning avvisas. Fel identifierar berört fält och antalet sparade ärenden är oförändrat. | Logik och integration | Saknas |
-| T03 | Gränsfall | K2 | Rubrik eller beskrivning med enbart blanksteg avvisas. Inget ärende sparas. | Logik och integration | Saknas |
-| T04 | Gränsfall | K1, K2 | Rubrik på 1 och 100 tecken godkänns; 101 avvisas. Beskrivning på 1 och 5 000 tecken godkänns; 5 001 avvisas. Längd räknas efter trimning. | Logik | Saknas |
-| T05 | Error path | K2 | Tom eller okänd kategori respektive prioritet avvisas i applikationslogiken även utan gränssnittets validering. Inget ärende sparas. | Logik och integration | Saknas |
-| T06 | Happy path | K3 | Ett registrerat ärende finns kvar med samma uppgifter när lagringen stängs och öppnas av nya instanser. | Integration | Saknas |
-| T07 | Happy path | K4, K5 | Flera ärenden listas med angivna listfält i fallande skapandetid. Hämtning med ett ID ger samtliga fält från rätt ärende. | Integration | Saknas |
-| T08 | Gränsfall | K4, K8 | Tom lagring ger en tom ärendelista utan fel. Ett giltigt filter utan träffar ger en tom resultatlista. | Integration | Saknas |
-| T09 | Error path | K5, K6 | Hämtning eller statusändring för ett okänt ID ger ett hanterat fel. Inget ärende skapas och befintliga uppgifter ändras inte. | Integration | Saknas |
-| T10 | Happy path | K3, K6 | Tillåtna statusändringar sparas och finns kvar efter återöppnad lagring. Övriga fält är oförändrade. Återöppning från Avslutat till Pågående ingår. | Logik och integration | Saknas |
-| T11 | Error path | K6 | Tom eller okänd status avvisas och tidigare lagrad status samt övriga ärendefält förblir oförändrade. | Logik och integration | Saknas |
-| T12 | Gränsfall | K6 | Att välja aktuell status igen lyckas utan att ändra några ärendeuppgifter. | Integration | Saknas |
-| T13 | Error path | K7 | Simulerat lagringsfel vid registrering ger ett hanterat misslyckat resultat och inget sparat ärende. | Logik med simulerat fel | Saknas |
-| T14 | Error path | K7 | Simulerat lagringsfel vid statusändring ger ett hanterat misslyckat resultat och lämnar tidigare lagrad status oförändrad. | Logik med simulerat fel | Saknas |
-| T15 | Kompletterande funktion / happy path | K8 | Bland ärenden med olika status returnerar varje statusfilter endast rätt ärenden i rätt sortering. Alla returnerar samtliga. Lagrade uppgifter ändras inte. | Integration | Saknas |
-| T16 | Gränsfall | K1, K2 | Inledande och avslutande blanksteg tas bort före lagring, medan inre blanksteg och radbrytningar i beskrivningen bevaras. | Logik och integration | Saknas |
+| <a name="t01"></a>T01 | Happy path | K1 | Giltig registrering sparar ett ärende med rätt trimmade fält, unikt ID, status Nytt och giltig skapandetid. Två registreringar får olika ID:n. | Integration | Saknas |
+| <a name="t02"></a>T02 | Error path | K2 | Saknad eller tom rubrik respektive beskrivning avvisas. Fel identifierar berört fält och antalet sparade ärenden är oförändrat. | Logik och integration | Saknas |
+| <a name="t03"></a>T03 | Gränsfall | K2 | Rubrik eller beskrivning med enbart blanksteg avvisas. Inget ärende sparas. | Logik och integration | Saknas |
+| <a name="t04"></a>T04 | Gränsfall | K1, K2 | Rubrik på 1 och 100 tecken godkänns; 101 avvisas. Beskrivning på 1 och 5 000 tecken godkänns; 5 001 avvisas. Längd räknas efter trimning. | Logik | Saknas |
+| <a name="t05"></a>T05 | Error path | K2 | Tom eller okänd kategori respektive prioritet avvisas i applikationslogiken även utan gränssnittets validering. Inget ärende sparas. | Logik och integration | Saknas |
+| <a name="t06"></a>T06 | Happy path | K3 | Ett registrerat ärende finns kvar med samma uppgifter när lagringen stängs och öppnas av nya instanser. | Integration | Saknas |
+| <a name="t07"></a>T07 | Happy path | K4, K5 | Flera ärenden listas med angivna listfält i fallande skapandetid. Hämtning med ett ID ger samtliga fält från rätt ärende. | Integration | Saknas |
+| <a name="t08"></a>T08 | Gränsfall | K4, K8 | Tom lagring ger en tom ärendelista utan fel. Ett giltigt filter utan träffar ger en tom resultatlista. | Integration | Saknas |
+| <a name="t09"></a>T09 | Error path | K5, K6 | Hämtning eller statusändring för ett okänt ID ger ett hanterat fel. Inget ärende skapas och befintliga uppgifter ändras inte. | Integration | Saknas |
+| <a name="t10"></a>T10 | Happy path | K3, K6 | Tillåtna statusändringar sparas och finns kvar efter återöppnad lagring. Övriga fält är oförändrade. Återöppning från Avslutat till Pågående ingår. | Logik och integration | Saknas |
+| <a name="t11"></a>T11 | Error path | K6 | Tom eller okänd status avvisas och tidigare lagrad status samt övriga ärendefält förblir oförändrade. | Logik och integration | Saknas |
+| <a name="t12"></a>T12 | Gränsfall | K6 | Att välja aktuell status igen lyckas utan att ändra några ärendeuppgifter. | Integration | Saknas |
+| <a name="t13"></a>T13 | Error path | K7 | Simulerat lagringsfel vid registrering ger ett hanterat misslyckat resultat och inget sparat ärende. | Logik med simulerat fel | Saknas |
+| <a name="t14"></a>T14 | Error path | K7 | Simulerat lagringsfel vid statusändring ger ett hanterat misslyckat resultat och lämnar tidigare lagrad status oförändrad. | Logik med simulerat fel | Saknas |
+| <a name="t15"></a>T15 | Kompletterande funktion / happy path | K8 | Bland ärenden med olika status returnerar varje statusfilter endast rätt ärenden i rätt sortering. Alla returnerar samtliga. Lagrade uppgifter ändras inte. | Integration | Saknas |
+| <a name="t16"></a>T16 | Gränsfall | K1, K2 | Inledande och avslutande blanksteg tas bort före lagring, medan inre blanksteg och radbrytningar i beskrivningen bevaras. | Logik och integration | Saknas |
 
 Närliggande fall får grupperas och parametriseras. Exakta feltexter behöver inte låsas i logiktester om feltypen och kopplingen till fältet kan verifieras. Begripligheten i den text som användaren faktiskt ser bedöms manuellt.
 
@@ -54,13 +54,13 @@ Alla kontroller har status **Planerat**. Datum, utförare och utfall fylls i eft
 
 | ID | Krav | Genomförande och förväntat resultat |
 | --- | --- | --- |
-| M01 | K1, K4, K5 | Registrera ett giltigt ärende i gränssnittet. Kontrollera bekräftelse, listfält, detaljfält och navigation tillbaka till listan. |
-| M02 | K2 | Skicka ett ofullständigt formulär och överskrid en längdgräns. Kontrollera att felmeddelandet är begripligt, pekar på rätt fält och att inmatade uppgifter finns kvar. |
-| M03 | K3, K6 | Skapa ett ärende och ändra status. Stoppa hela applikationen, starta igen och kontrollera att rätt ärende och status visas i både lista och detaljvy. |
-| M04 | K4, K8 | Kontrollera tom lista, statusfilter med och utan träffar samt återställning med Alla. Kontrollera att respektive besked är begripligt. |
-| M05 | K7 | Framkalla ett kontrollerat skrivfel i en separat testmiljö. Kontrollera begripligt fel, ingen lyckad bekräftelse, bevarad formulärinmatning och att misslyckad statusändring inte visas som sparad. Dokumentera hur felet framkallades. |
-| M06 | Q1, Q4 | Följ README från en ren klon, installera, starta, kör testerna och genomför demonstrationsflödet. Dokumentera eventuella saknade steg. |
-| M07 | K5, K6 | Begär ett ärende som inte finns via den åtkomstväg implementationen erbjuder. Kontrollera ett begripligt besked och att användaren kan fortsätta använda applikationen. |
+| <a name="m01"></a>M01 | K1, K4, K5 | Registrera ett giltigt ärende i gränssnittet. Kontrollera bekräftelse, listfält, detaljfält och navigation tillbaka till listan. |
+| <a name="m02"></a>M02 | K2 | Skicka ett ofullständigt formulär och överskrid en längdgräns. Kontrollera att felmeddelandet är begripligt, pekar på rätt fält och att inmatade uppgifter finns kvar. |
+| <a name="m03"></a>M03 | K3, K6 | Skapa ett ärende och ändra status. Stoppa hela applikationen, starta igen och kontrollera att rätt ärende och status visas i både lista och detaljvy. |
+| <a name="m04"></a>M04 | K4, K8 | Kontrollera tom lista, statusfilter med och utan träffar samt återställning med Alla. Kontrollera att respektive besked är begripligt. |
+| <a name="m05"></a>M05 | K7 | Framkalla ett kontrollerat skrivfel i en separat testmiljö. Kontrollera begripligt fel, ingen lyckad bekräftelse, bevarad formulärinmatning och att misslyckad statusändring inte visas som sparad. Dokumentera hur felet framkallades. |
+| <a name="m06"></a>M06 | Q1, Q4 | Följ README från en ren klon, installera, starta, kör testerna och genomför demonstrationsflödet. Dokumentera eventuella saknade steg. |
+| <a name="m07"></a>M07 | K5, K6 | Begär ett ärende som inte finns via den åtkomstväg implementationen erbjuder. Kontrollera ett begripligt besked och att användaren kan fortsätta använda applikationen. |
 
 ## 5. Köra testerna
 
