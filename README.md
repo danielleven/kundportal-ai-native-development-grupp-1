@@ -30,10 +30,10 @@ Endast påhittade uppgifter används. Kundinloggning, produktionsdrift, externa 
 | --------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | Teamnamn                          | Jiriga                                                                                                                      |
 | Medlemmar och GitHub-användarnamn | `Daniel - /danielleven` `Danielle - /danielleroslund` `Lukas - /LurreT` `Alvar - /AlvarArias` `Nora - /NoraAljuburiMasamra` |
-| Språk och ramverk                 | Inte valt.                                                                                                                  |
-| Klientplattform                   | Inte vald.                                                                                                                  |
-| Databas/beständig lagring         | Inte vald.                                                                                                                  |
-| Testverktyg                       | Inte valt.                                                                                                                  |
+| Språk och ramverk                 | `TypeScript`, `React`,`Pyton`                                                                                               |
+| Klientplattform                   | `Webbapplikation`                                                                                                           |
+| Databas/beständig lagring         | `SQLite`                                                                                                                    |
+| Testverktyg                       | `Vitest`, `Pytest`                                                                                                          |
 
 ### Installation och körning
 
