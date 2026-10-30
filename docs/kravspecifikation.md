@@ -168,7 +168,7 @@ Motivering: filtret hjälper handläggaren att hitta ärenden som behöver hante
 | Fältregler och statusflöde | Föreslagna i detta dokument; ska fastställas av gruppen. |
 | Kompletterande funktion | Statusfilter föreslaget; ska fastställas före implementation. |
 | Teknisk definition av textlängd och tidsformat | Fastställs tillsammans med teknikvalet. |
-| Teammedlemmar och ansvar | Fylls i i README och kopplas till konkreta uppgifter. |
+| Teammedlemmar och ansvar | Ansvarsfördelningen finns i [README](../README.md#ansvarsfördelning). Konkreta uppgifter kopplas till ansvarig medlem och relevanta krav-ID:n. |
 
 ## 9. Föreslagen arbetsordning
 

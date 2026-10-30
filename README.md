@@ -35,6 +35,18 @@ Endast påhittade uppgifter används. Kundinloggning, produktionsdrift, externa 
 | Databas/beständig lagring         | `SQLite`                                                                                                                    |
 | Testverktyg                       | `Vitest`, `Pytest`                                                                                                          |
 
+### Ansvarsfördelning
+
+| Medlem | Huvudansvar | Konkreta uppgifter |
+| --- | --- | --- |
+| Danielle | Backend | API, databas, validering och hantering av ärendestatus. |
+| Daniel | Frontend, delat med Lukas, Nora och Alvar | Bygga formulär, ärendelista, detaljvy och statusfilter i React. |
+| Lukas | Integration och utvecklingsmiljö samt delat frontendansvar med Daniel, Nora och Alvar | Koppla ihop frontend och backend, samordna API-format, ordna startkommandon och automatiska testkörningar i GitHub Actions samt utveckla frontend. |
+| Nora | UX samt delat frontendansvar med Daniel, Lukas och Alvar | Skissa användarflöden och vyer, precisera acceptanskriterier, utforma felmeddelanden och utveckla frontend. |
+| Alvar | Tester samt delat frontendansvar med Daniel, Lukas och Nora | Samordna testplanen, skriva automatiserade tester, dokumentera faktiska testresultat och utveckla frontend. |
+
+Rollerna anger huvudansvar. Alla ansvarar för tester och dokumentation för sina egna ändringar och bidrar till kodgranskning. Konkreta uppgifter kopplas till ansvarig medlem och relevanta krav-ID:n.
+
 ### Installation och körning
 
 Applikationen är ännu inte implementerad. Det finns därför inga installations-, start- eller testkommandon att köra. Instruktionerna ska kompletteras med faktiska, verifierade kommandon när projektstrukturen finns.
