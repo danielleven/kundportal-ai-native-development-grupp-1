@@ -2,9 +2,9 @@
 
 ## Projektöversikt
 
-Kundserviceportalen är ett lokalt arbetsverktyg för handläggare som registrerar, läser och följer kundärenden. Lösningen planeras innehålla ett användargränssnitt, applikationslogik och beständig lagring.
+Kundserviceportalen är ett lokalt arbetsverktyg där en aktiv handläggare åt gången registrerar, läser och följer kundärenden. Varje ärende innehåller obligatoriskt kund-ID och kundnamn som anges manuellt. Lösningen planeras innehålla ett användargränssnitt, applikationslogik och beständig lagring. Första versionen prioriterar datorwebbläsare och ett kärnflöde som kan genomföras med tangentbord.
 
-**Projektstatus 2026-10-23:** krav och verifiering är dokumenterade som ett första förslag. Applikationskod, automatiserade tester och val av teknik återstår. Inga produktkontroller är genomförda.
+**Projektstatus 2026-10-30:** produktkraven är fastställda och grundtekniken är vald. Danielle väljer backendramverket separat; API-kontrakt och övriga teknikdetaljer återstår att dokumentera. Applikationskod och automatiserade tester återstår. Verifieringen är planerad och inga produktkontroller är genomförda.
 
 ### Gruppens underlag
 
@@ -15,14 +15,14 @@ Länka till dessa underlag från teamets löpande PR. Kursens ursprungliga instr
 
 ### Planerad funktionalitet
 
-- Registrera kundärenden med validerad rubrik, beskrivning, kategori och prioritet.
-- Visa ärendelista och ärendedetaljer.
+- Registrera kundärenden med obligatoriskt, manuellt angivet kund-ID och kundnamn samt validerad rubrik, beskrivning, kategori och prioritet.
+- Visa ärendelista och ärendedetaljer med de sparade kunduppgifterna.
 - Ändra status mellan Nytt, Pågående, Väntar på kund och Avslutat.
 - Bevara ärenden och statusändringar efter omstart.
-- Visa begripliga fel när inmatning är felaktig eller en operation misslyckas.
-- Filtrera ärendelistan på status, föreslagen kompletterande funktion.
+- Visa begripliga fel när inmatning är felaktig eller en operation misslyckas, och skilja ett bekräftat lagringsfel från ett okänt sparutfall.
+- Filtrera ärendelistan på status, fastställd kompletterande funktion.
 
-Endast påhittade uppgifter används. Kundinloggning, produktionsdrift, externa integrationer och en AI-funktion i produkten ingår inte. Exakta regler och avgränsningar finns i kravspecifikationen och ska fastställas av gruppen innan implementation.
+Endast påhittade uppgifter används. Kunduppgifterna sparas på respektive ärende; ett separat kundregister ingår inte. Kundinloggning, produktionsdrift, externa integrationer och en AI-funktion i produkten ingår inte heller. Efter registrering kan bara status ändras; radering av ärenden ingår inte. Fastställda regler och avgränsningar finns i [kravspecifikationen](docs/kravspecifikation.md).
 
 ### Team och teknik
 
@@ -30,7 +30,8 @@ Endast påhittade uppgifter används. Kundinloggning, produktionsdrift, externa 
 | --------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | Teamnamn                          | Jiriga                                                                                                                      |
 | Medlemmar och GitHub-användarnamn | `Daniel - /danielleven` `Danielle - /danielleroslund` `Lukas - /LurreT` `Alvar - /AlvarArias` `Nora - /NoraAljuburiMasamra` |
-| Språk och ramverk                 | `TypeScript`, `React`,`Pyton`                                                                                               |
+| Språk och ramverk                 | `TypeScript`, `React`, `Python`                                                                                              |
+| Backendramverk                    | Danielle väljer separat. Beslutet dokumenteras när det är fattat.                                                            |
 | Klientplattform                   | `Webbapplikation`                                                                                                           |
 | Databas/beständig lagring         | `SQLite`                                                                                                                    |
 | Testverktyg                       | `Vitest`, `Pytest`                                                                                                          |
@@ -39,17 +40,27 @@ Endast påhittade uppgifter används. Kundinloggning, produktionsdrift, externa 
 
 | Medlem | Huvudansvar | Konkreta uppgifter |
 | --- | --- | --- |
-| Danielle | Backend | API, databas, validering och hantering av ärendestatus. |
+| Danielle | Backend | Välja backendramverk samt bygga API, databas, validering och hantering av ärendestatus. |
 | Daniel | Frontend, delat med Lukas, Nora och Alvar | Bygga formulär, ärendelista, detaljvy och statusfilter i React. |
 | Lukas | Integration och utvecklingsmiljö samt delat frontendansvar med Daniel, Nora och Alvar | Koppla ihop frontend och backend, samordna API-format, ordna startkommandon och automatiska testkörningar i GitHub Actions samt utveckla frontend. |
 | Nora | UX samt delat frontendansvar med Daniel, Lukas och Alvar | Skissa användarflöden och vyer, precisera acceptanskriterier, utforma felmeddelanden och utveckla frontend. |
 | Alvar | Tester samt delat frontendansvar med Daniel, Lukas och Nora | Samordna testplanen, skriva automatiserade tester, dokumentera faktiska testresultat och utveckla frontend. |
 
-Rollerna anger huvudansvar. Alla ansvarar för tester och dokumentation för sina egna ändringar och bidrar till kodgranskning. Konkreta uppgifter kopplas till ansvarig medlem och relevanta krav-ID:n.
+Rollerna anger huvudansvar. Arbetet fördelas flexibelt och teammedlemmarna hjälper varandra där det behövs. Uppgifter kopplas till relevanta krav-ID:n och verifiering. Alla ansvarar för tester och dokumentation för sina egna ändringar, och andra teammedlemmar validerar dem.
+
+### Gemensamt arbetssätt
+
+En funktion räknas som färdig när den har verifierats mot den riktiga motparten, relevanta tester har körts, dokumentationen har uppdaterats och en annan teammedlem har granskat ändringen. Simulerade API-svar får användas under parallell utveckling; verifiering av integrationen görs mot den riktiga frontend- och backendlösningen.
+
+Både backend- och frontendtester ska vara godkända för den aktuella PR-versionen i GitHub Actions före merge till teamets `main`. Granskningen dokumenterar vem som granskade, vad som kontrollerades och vad återkopplingen ledde till. Automatiska testkörningar återstår att implementera.
+
+Gemensamma AI-instruktioner ska versionshanteras i repot. Varje medlem ska kunna förklara sitt bidrag, vilka kontroller som genomförts och vad de faktiskt visar, även för AI-genererad kod. Instruktionerna återstår att lägga till.
 
 ### Installation och körning
 
 Applikationen är ännu inte implementerad. Det finns därför inga installations-, start- eller testkommandon att köra. Instruktionerna ska kompletteras med faktiska, verifierade kommandon när projektstrukturen finns.
+
+En vanlig start eller omstart ska bevara befintliga ärenden. Återställning av utvecklingsdata och skapande av demonstrationsdata ska ha separata, uttryckliga kommandon. Automatiserade tester ska använda separat temporär lagring.
 
 Före demonstration och inlämning ska detta avsnitt beskriva:
 
@@ -59,7 +70,7 @@ Före demonstration och inlämning ska detta avsnitt beskriva:
 4. Start av lösningens samtliga delar och hur användargränssnittet öppnas.
 5. Exakt kommando för att köra alla automatiserade tester och hur separat testlagring används.
 6. Hur applikationen stoppas och startas igen samt var ärenden lagras beständigt.
-7. Hur påhittade demonstrationsdata skapas vid behov.
+7. Separata kommandon för att återställa utvecklingsdata respektive skapa påhittade demonstrationsdata.
 
 En annan person ska kunna följa instruktionerna utan ett personligt betalkonto. Körinstruktionerna verifieras från en ren klon enligt M06 i verifieringsplanen.
 
@@ -68,16 +79,20 @@ En annan person ska kunna följa instruktionerna utan ett personligt betalkonto.
 Detta flöde är en plan för den färdiga lösningen och har ännu inte genomförts.
 
 1. Starta applikationen enligt körinstruktionerna och öppna ärendelistan.
-2. Försök skapa ett ärende utan rubrik. Visa begripligt fel och att inget ärende sparas.
-3. Skapa två giltiga ärenden med påhittat innehåll och öppna detaljerna för ett av dem.
-4. Ändra dess status till Pågående och kontrollera att statusen visas i detaljvy och lista.
-5. Filtrera på Pågående. Visa att bara matchande ärenden syns och återställ med Alla.
-6. Stoppa hela applikationen och starta den igen med samma lagring. Visa att ärenden och statusändring finns kvar.
-7. Kör de automatiserade testerna och visa faktiska resultat samt kända begränsningar i verifieringsplanen.
+2. Försök skapa ärenden med saknat kund-ID, kundnamn respektive rubrik. Visa fältspecifika fel, bevarad inmatning och att inget ärende sparas.
+3. Skapa två giltiga ärenden med påhittat innehåll och manuellt angivet kund-ID och kundnamn. Kontrollera att bekräftad registrering öppnar det nya ärendets detaljvy och att rätt kunduppgifter visas i både lista och detaljer.
+4. Filtrera på Nytt, öppna ett ärende och ändra dess status till Pågående. Återgå till listan och kontrollera att filtret Nytt är kvar och att det ändrade ärendet inte längre matchar.
+5. Filtrera på Pågående och kontrollera att det ändrade ärendet visas. Visa även ett filter utan träffar och återställ listan med Alla.
+6. Välj ett statusfilter och ladda om sidan helt. Kontrollera att filtret återgår till Alla och att ärendena finns kvar.
+7. Stoppa hela applikationen och starta den igen med samma lagring. Visa att ärenden, kunduppgifter och statusändring finns kvar.
+8. Genomför kärnflödet med tangentbord och kontrollera synlig fokusmarkering samt begripliga felmeddelanden.
+9. Kör de automatiserade testerna och visa faktiska resultat samt kända begränsningar i verifieringsplanen.
 
 ### Arbetsplan
 
-Fastställ först kravförslag, kompletterande funktion och teknikval. Dela sedan upp arbetet i uppgifter kopplade till krav-ID:n. Implementera registrering och lagring, därefter lista och detaljer, statusändring och felhantering samt statusfilter. Uppdatera tester och dokumentation tillsammans med respektive funktion.
+Utgå från de fastställda produktkraven. Danielle väljer backendramverket och teamet dokumenterar ett gemensamt API-kontrakt samt återstående teknikdetaljer. Fördela arbetet flexibelt i uppgifter kopplade till krav-ID:n och verifiering.
+
+Det första integrationsmålet är att skapa ett ärende i React, spara det via backend i SQLite och visa det igen efter omladdning. Lukas samordnar denna kedja så snart grunderna finns. Bygg därefter vidare på lista och detaljer, statusändring och felhantering samt statusfilter. Integrera och verifiera löpande och uppdatera tester och dokumentation tillsammans med respektive funktion. Teamet fastställer interna leveransdatum.
 
 Körresultat redovisas i verifieringsplanen först efter faktisk körning. Kursens regler för gemensamma och individuella underlag gäller enligt instruktionerna nedan.
 
