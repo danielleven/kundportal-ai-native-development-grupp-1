@@ -1,11 +1,15 @@
-import { useEffect, useState } from 'react'
-import type { StatusFilter } from './domain/ticket'
+import { useEffect, useState, type CSSProperties } from 'react'
+import type { StatusFilter, Ticket } from './domain/ticket'
 import { TicketDetail } from './features/tickets/TicketDetail'
 import { TicketForm } from './features/tickets/TicketForm'
 import { TicketList } from './features/tickets/TicketList'
+import type { ListRefresh } from './features/tickets/useTickets'
+import { useUpdateStatus } from './features/tickets/useUpdateStatus'
 import './App.css'
 
 type CheckState = 'checking' | 'available' | 'unavailable'
+
+const AWNING_SCALLOPS = 9
 
 const apiBaseUrl = import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:8000'
 
@@ -34,8 +38,16 @@ function App() {
   const [statusFilter, setStatusFilter] = useState<StatusFilter>(null)
   const [selectedTicketId, setSelectedTicketId] = useState<number | null>(null)
   const [showForm, setShowForm] = useState(false)
-  // Ändras efter registrering så att listan hämtas på nytt
-  const [listVersion, setListVersion] = useState(0)
+  const [listRefresh, setListRefresh] = useState<ListRefresh>()
+  const statusUpdateFor = useUpdateStatus(applyTicketUpdate, refreshList)
+
+  function refreshList() {
+    setListRefresh({})
+  }
+
+  function applyTicketUpdate(ticket: Ticket) {
+    setListRefresh({ updatedTicket: ticket })
+  }
 
   function openForm() {
     setSelectedTicketId(null)
@@ -65,6 +77,12 @@ function App() {
   return (
     <div className="app-shell">
       <aside className="sidebar">
+        {/* Dekor: markisen överst i designförslaget. --i styr när varje båge gungar */}
+        <div className="awning" aria-hidden="true">
+          {Array.from({ length: AWNING_SCALLOPS }, (_, index) => (
+            <span key={index} style={{ '--i': index } as CSSProperties} />
+          ))}
+        </div>
         <div className="brand">
           <span className="logo" aria-hidden="true">
             J
@@ -96,7 +114,7 @@ function App() {
         </div>
         <div className="ticket-layout">
           <TicketList
-            key={listVersion}
+            refresh={listRefresh}
             statusFilter={statusFilter}
             onStatusFilterChange={setStatusFilter}
             selectedTicketId={selectedTicketId}
@@ -104,7 +122,7 @@ function App() {
           />
           {showForm && (
             <TicketForm
-              onCreated={() => setListVersion((version) => version + 1)}
+              onCreated={refreshList}
               onCancel={() => setShowForm(false)}
             />
           )}
@@ -112,6 +130,7 @@ function App() {
             <TicketDetail
               key={selectedTicketId}
               ticketId={selectedTicketId}
+              statusUpdate={statusUpdateFor(selectedTicketId)}
               onClose={() => setSelectedTicketId(null)}
             />
           )}
